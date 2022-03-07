@@ -1,18 +1,8 @@
-const Sorteios = {
+export const Sorteios = {
     contador: 99,
     numerosParaSortear: [],
     numerosSorteados: [],
     sorteado: 0,
-    iniciarJogo: 
-        function(){
-            for (i = 0; i<=99; i++){
-                this.numerosParaSortear.push(i+1);
-            };
-            this.sorteio()   
-            document.getElementById('jogo').innerHTML = '<button id ="iniciar" onclick="Sorteios.sorteio()"></button>';
-            return this.numerosParaSortear;
-        }
-    ,
     sorteio:
         function(){
             console.log(this.numerosParaSortear.length);
@@ -25,7 +15,23 @@ const Sorteios = {
                 return this.numerosSorteados;
             };
             this.contador-= 1;
-            return this.numerosSorteados[99 - this.contador];
+            return this.sorteado;
+        }
+    ,
+    sorteioIndex:
+        function(){
+            let index = this.numerosSorteados.length - 1;
+            return index;
+        }
+    ,
+    iniciarJogo: 
+        function(){
+            for (let i = 0; i<=99; i++){
+                this.numerosParaSortear.push(i + 1);
+            };
+            this.sorteio()   
+            document.getElementById('botaoJogo').innerHTML = '<button id ="JogandoBingo">Rodar número</button>';
+            return this.numerosParaSortear;
         }
     ,
     getRandomInt:

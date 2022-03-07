@@ -1,0 +1,69 @@
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root
+{
+    --color1: #f6a2c6;
+    --color2: #f8d1b8;
+    --color3: #320d0e;
+    --color4: #887675;
+    --color4-1: #88767f;
+    --color5: #f3eae8;
+
+}
+body
+{
+    background: var(--color3);
+}
+#BingoOnline
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+div#jogo
+{
+    display: grid;
+    align-items: auto;
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 400px;
+    background: var(--color5);
+}
+div#jogo #botaoJogo
+{
+    justify-self: center;
+}
+div#jogo button
+{
+    color: var(--color5);
+    background: var(--color4);
+    height: 40px;
+    width: 160px;
+    border-radius: 30px 30px 0 0;
+    border-style: hidden;
+    cursor: pointer;
+}
+div#jogo button:hover
+{
+    background: var(--color4-1);
+    width: 165px;
+}
+div#Sorteados
+{
+    justify-self: center;
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px ;
+    grid-template-rows: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px ;
+    grid-gap: 3px;
+    border: 2px #320d0e solid;
+}
+div#Sorteados div.numeros
+{
+    background: var(--color4);
+    border: 2px #320d0e solid;
+    text-align: center;
+}
