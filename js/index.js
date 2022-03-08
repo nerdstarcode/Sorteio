@@ -1,35 +1,25 @@
-import { Sorteios } from "./modules/sorteios.js";
-let IniciarJogo = document.getElementById("IniciarBingo");
-let JogandoBingo;
-var numeros = document.getElementById("Sorteados");
+import { Sorteios,InserirNoHtml } from "./modules/sorteios.js";
+let IniciarJogo = document.getElementById("BigoIndex");
+let JogandoBingo = false;
 
 IniciarJogo.addEventListener("click", 
     function iniciandoJogo(){
-        Sorteios.iniciarJogo();
-        let index = Sorteios.sorteioIndex()
-        numeros.innerHTML += 
-        `
-            <div class="numeros">
-                ${Sorteios.numerosSorteados[index]}
-            </div>
-        `
-    JogandoBingo = document.getElementById("JogandoBingo");
-    JogandoBingo.addEventListener("click", 
-        function jogandoBingo(){
+        let index;
+        if (JogandoBingo == true){
             Sorteios.sorteio();
-            index = Sorteios.sorteioIndex()
-            if(Sorteios.sorteioIndex())
-            numeros.innerHTML += 
-                `
-                    <div class="numeros">
-                        ${Sorteios.numerosSorteados[index]}
-                    </div>
-                ` 
+            index = Sorteios.sorteioIndex();
+            if (Sorteios.numerosParaSortear.length != []){
+                InserirNoHtml.sorteioHtml(index);
+            }
+        }else{
+            Sorteios.iniciarJogo();
+            index = Sorteios.sorteioIndex();
+            InserirNoHtml.sorteioHtml(index);
+            InserirNoHtml.botaoSorteio();
+            JogandoBingo = true;
         }
-    );
     }
 );
-
 
 
 
